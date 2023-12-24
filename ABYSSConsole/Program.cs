@@ -26,7 +26,7 @@ while (isRunning)
             ConsoleSubroutine.TxPlain(pipestream);
             break;
         case "file":
-            ConsoleSubroutine.File();
+            ConsoleSubroutine.FileLoad();
             break;
         case "exit":
             isRunning = false;
@@ -58,7 +58,7 @@ static class ConsoleSubroutine
             (string msg) => { PipeTx.Transmit(pipe, msg); }
         );
     }
-    static public void File() //open local file as memory mapped file.
+    static public void FileLoad() //open local file as memory mapped file.
     {
         CLILoop(
             "file>>",
@@ -89,7 +89,13 @@ static class ConsoleSubroutine
 
                 try
                 {
-                    var file = MemoryMappedFile.CreateFromFile(path, FileMode.Open, name);
+                    var file = MemoryMappedFile.CreateFromFile(
+                        File.Open(path, FileMode.Open, FileAccess.Read, FileShare.Read),
+                        name,
+                        0,
+                        MemoryMappedFileAccess.Read,
+                        HandleInheritability.Inheritable,
+                        false);
                     Resources.Files.Add(name, file);
                 }
                 catch(Exception e)
