@@ -1,0 +1,5 @@
+C:\Users\minwoo\Desktop\Tools\mine\PipeConsole.exe
+C:\Users\minwoo\Desktop\Tools\mine\PipeConsole.dll
+C:\Users\minwoo\Desktop\Tools\mine\PipeConsole.deps.json
+C:\Users\minwoo\Desktop\Tools\mine\PipeConsole.runtimeconfig.json
+C:\Users\minwoo\Desktop\Tools\mine\PipeConsole.pdb

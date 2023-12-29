@@ -1,0 +1,14 @@
+D:\WORKS\github\PipeConsole\PipeConsole\bin\Release\net7.0\PipeConsole.exe
+D:\WORKS\github\PipeConsole\PipeConsole\bin\Release\net7.0\PipeConsole.deps.json
+D:\WORKS\github\PipeConsole\PipeConsole\bin\Release\net7.0\PipeConsole.runtimeconfig.json
+D:\WORKS\github\PipeConsole\PipeConsole\bin\Release\net7.0\PipeConsole.dll
+D:\WORKS\github\PipeConsole\PipeConsole\bin\Release\net7.0\PipeConsole.pdb
+D:\WORKS\github\PipeConsole\PipeConsole\obj\Release\net7.0\PipeConsole.GeneratedMSBuildEditorConfig.editorconfig
+D:\WORKS\github\PipeConsole\PipeConsole\obj\Release\net7.0\PipeConsole.AssemblyInfoInputs.cache
+D:\WORKS\github\PipeConsole\PipeConsole\obj\Release\net7.0\PipeConsole.AssemblyInfo.cs
+D:\WORKS\github\PipeConsole\PipeConsole\obj\Release\net7.0\PipeConsole.csproj.CoreCompileInputs.cache
+D:\WORKS\github\PipeConsole\PipeConsole\obj\Release\net7.0\PipeConsole.dll
+D:\WORKS\github\PipeConsole\PipeConsole\obj\Release\net7.0\refint\PipeConsole.dll
+D:\WORKS\github\PipeConsole\PipeConsole\obj\Release\net7.0\PipeConsole.pdb
+D:\WORKS\github\PipeConsole\PipeConsole\obj\Release\net7.0\PipeConsole.genruntimeconfig.cache
+D:\WORKS\github\PipeConsole\PipeConsole\obj\Release\net7.0\ref\PipeConsole.dll

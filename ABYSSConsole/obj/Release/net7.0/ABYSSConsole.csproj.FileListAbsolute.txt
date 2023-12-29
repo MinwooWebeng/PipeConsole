@@ -1,0 +1,14 @@
+D:\WORKS\github\PipeConsole\ABYSSConsole\bin\Release\net7.0\ABYSSConsole.exe
+D:\WORKS\github\PipeConsole\ABYSSConsole\bin\Release\net7.0\ABYSSConsole.deps.json
+D:\WORKS\github\PipeConsole\ABYSSConsole\bin\Release\net7.0\ABYSSConsole.runtimeconfig.json
+D:\WORKS\github\PipeConsole\ABYSSConsole\bin\Release\net7.0\ABYSSConsole.dll
+D:\WORKS\github\PipeConsole\ABYSSConsole\bin\Release\net7.0\ABYSSConsole.pdb
+D:\WORKS\github\PipeConsole\ABYSSConsole\obj\Release\net7.0\ABYSSConsole.GeneratedMSBuildEditorConfig.editorconfig
+D:\WORKS\github\PipeConsole\ABYSSConsole\obj\Release\net7.0\ABYSSConsole.AssemblyInfoInputs.cache
+D:\WORKS\github\PipeConsole\ABYSSConsole\obj\Release\net7.0\ABYSSConsole.AssemblyInfo.cs
+D:\WORKS\github\PipeConsole\ABYSSConsole\obj\Release\net7.0\ABYSSConsole.csproj.CoreCompileInputs.cache
+D:\WORKS\github\PipeConsole\ABYSSConsole\obj\Release\net7.0\ABYSSConsole.dll
+D:\WORKS\github\PipeConsole\ABYSSConsole\obj\Release\net7.0\refint\ABYSSConsole.dll
+D:\WORKS\github\PipeConsole\ABYSSConsole\obj\Release\net7.0\ABYSSConsole.pdb
+D:\WORKS\github\PipeConsole\ABYSSConsole\obj\Release\net7.0\ABYSSConsole.genruntimeconfig.cache
+D:\WORKS\github\PipeConsole\ABYSSConsole\obj\Release\net7.0\ref\ABYSSConsole.dll

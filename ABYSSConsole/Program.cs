@@ -1,7 +1,7 @@
-﻿using System.Security.Principal;
+﻿using System.IO.MemoryMappedFiles;
 using System.IO.Pipes;
+using System.Security.Principal;
 using System.Text;
-using System.IO.MemoryMappedFiles;
 
 var pipestream = new NamedPipeClientStream(".", "abyssiumRx",
                     PipeDirection.Out, PipeOptions.None,
@@ -27,6 +27,12 @@ while (isRunning)
             break;
         case "file":
             ConsoleSubroutine.FileLoad();
+            break;
+        case "memory":
+            ConsoleSubroutine.MemoryShare();
+            break;
+        case "memmod":
+            ConsoleSubroutine.MemoryModify();
             break;
         case "exit":
             isRunning = false;
@@ -64,13 +70,6 @@ static class ConsoleSubroutine
             "file>>",
             (string line) =>
             {
-                if(line == "clear")
-                {
-                    Resources.Files.Clear();
-                    Console.WriteLine("closed all open files");
-                    return;
-                }
-
                 string[] split = line.Split(',', StringSplitOptions.TrimEntries);
                 if(split.Length != 2)
                 {
@@ -101,6 +100,83 @@ static class ConsoleSubroutine
                 catch(Exception e)
                 {
                     Console.WriteLine($"Failed to open file: {e}");
+                }
+            });
+    }
+    static public void MemoryShare()
+    {
+        CLILoop(
+            "memory>>",
+            (string line) =>
+            {
+                string[] split = line.Split(',', StringSplitOptions.TrimEntries);
+                if (split.Length != 2)
+                {
+                    Console.WriteLine("usage: <name>,<length>");
+                    return;
+                }
+
+                string name = split[0];
+                if (Resources.Files.ContainsKey(name))
+                {
+                    Console.WriteLine("a file with the same name exists");
+                    return;
+                }
+
+                if (!int.TryParse(split[1], out int length))
+                {
+                    Console.WriteLine("invalid length: " + split[1]);
+                    return;
+                }
+                try
+                {
+                    var file = MemoryMappedFile.CreateNew(name, length, MemoryMappedFileAccess.ReadWrite, MemoryMappedFileOptions.None, HandleInheritability.Inheritable);
+                    Resources.Files.Add(name, file);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Failed to open file: {e}");
+                }
+            });
+    }
+    static public void MemoryModify()
+    {
+        CLILoop(
+            "memmod>>",
+            (string line) =>
+            {
+                string[] split = line.Split(',', StringSplitOptions.TrimEntries);
+                if (split.Length < 3)
+                {
+                    Console.WriteLine("usage: <name>,<offset>,[data(int)]");
+                    return;
+                }
+
+                if (!Resources.Files.TryGetValue(split[0], out MemoryMappedFile? file))
+                {
+                    Console.WriteLine("file not exist");
+                    return;
+                }
+
+                if (!int.TryParse(split[1], out int offset))
+                {
+                    Console.WriteLine("invalid offset: " + split[1]);
+                    return;
+                }
+
+                List<int> data = new();
+                for(int i = 2; i < split.Length; i++)
+                {
+                    data.Add(int.Parse(split[i]));
+                }
+
+                try
+                {
+                    file.CreateViewAccessor().WriteArray<int>(offset, data.ToArray(), 0, data.Count);
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine($"Failed to write file: {e}");
                 }
             });
     }
